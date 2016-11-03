@@ -13,7 +13,8 @@ OverTool에서 추출되는 hex 값 기준으로 꾸준히 정리하기로 함.
 [방법](https://owdev.wiki/User:Yukimono/Toolchain) 참고
 
 ```
-$ OverTool.exe -LkoKR C:\Games\Overwatch v D:\Documents/extracted
+# 윈도우즈
+$ OverTool.exe -LkoKR C:\Games\Overwatch v D:\Documents\extracted
 ```
 
 ### .wem => .ogg 변환
