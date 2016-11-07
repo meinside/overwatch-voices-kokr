@@ -12,7 +12,7 @@ if __FILE__ == $0
   CSV.open(CSV_FILENAME, 'wb'){|csv|
     csv << ['id', 'filename', 'hero', 'txt', 'info']
 
-    db.execute("select id, filename, hero, txt, info from voices order by id asc", ARGV[0]).each{|row|
+    db.execute("select id, filename, hero, txt, info from voices order by id asc").each{|row|
       csv << row
     }
   }
