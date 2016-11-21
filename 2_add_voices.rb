@@ -9,7 +9,7 @@ if __FILE__ == $0
   # read file names
   voices = []
   Dir[File.join(SOUNDS_DIR, '*', '*.m4a')].each{|path|
-    dirname = File.dirname(path)
+    dirname = File.basename(File.dirname(path))
     filename = File.basename(path)
     hex = File.basename(filename, ".*")
 
