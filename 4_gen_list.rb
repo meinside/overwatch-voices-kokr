@@ -16,6 +16,8 @@ if __FILE__ == $0
 <html>
   <header>
     <title>Overwatch Voices #{EXTRACTED_DATE}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.min.js"></script>
     <script type="text/javascript">
       function play(filepath) {
@@ -83,7 +85,7 @@ ANCHOR_HEADER
   heroes.each_with_index{|hero, i|
     anchors << "<a class='anchor' href='#hero#{i}'>#{hero}</a>"
   }
-  lines << anchors.join(" ")
+  lines << anchors.join(" | ")
   lines << <<ANCHOR_FOOTER
     </div>
 ANCHOR_FOOTER
