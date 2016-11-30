@@ -32,10 +32,26 @@ if __FILE__ == $0
     end
   }
 
+  # check if there are removed files
+  num_removed = 0
+  db.execute("select id, filename, hero from voices").each{|row|
+    id = row[0]
+    hex = row[1]
+    hero = row[2]
+    filename = File.join(SOUNDS_DIR, hero, "#{hex}.#{EXT}")
+
+    unless File.exists?(filename) # if it was removed, also delete from db
+      db.execute("delete from voices where id = ?", [id])
+
+      num_removed += 1
+    end
+  }
+
   # vacuum
   db.execute("vacuum")
 
-  puts "Newly inserted: #{voices.count - num_duplicated} file(s), already exist: #{num_duplicated} file(s)"
+  # summary
+  puts "Newly inserted: #{voices.count - num_duplicated} file(s), already exist: #{num_duplicated} file(s), removed: #{num_removed} file(s)"
 
 end
 
