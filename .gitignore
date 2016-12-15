@@ -1,4 +1,4 @@
 *.swp*
-sounds/
+sounds*/
 *_backup_*
 voices.html
