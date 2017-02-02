@@ -4,7 +4,7 @@
 
 OverTool에서 추출되는 hex 값 기준으로 꾸준히 정리하기로 함.
 
-* **최종 추출 기준일**: 2016-12-15
+* **최종 추출 기준일**: 2017-02-01
 
 ## (테스트 위한) 음성 추출 방법
 
@@ -25,10 +25,29 @@ $ OverTool.exe -LkoKR C:\Games\Overwatch v D:\Documents\extracted
 
 ffmpeg 활용:
 
-```
+```bash
 $ ffmpeg -i xxxxx.ogg -ar 44.1k xxxxx.wav
 
 $ ffmpeg -i xxxxx.wav -b:a 192k xxxxx.m4a
+```
+
+일괄 변환 예 (ruby):
+
+```ruby
+# ogg => wav
+Dir['**/*.ogg'].each{|ogg|
+	`ffmpeg -i "#{ogg}" -ar 44.1k "#{ogg.gsub(".ogg", ".wav")}"`
+}
+
+# wav => m4a
+Dir['**/*.wav'].each{|wav|
+	`ffmpeg -i "#{wav}" -b:a 192k "#{wav.gsub(".wav", ".m4a")}"`
+}
+
+# delete ogg & wav files
+(Dir['**/*.ogg'] + Dir['**/*.wav']).each{|f|
+	`rm "#{f}"`
+}
 ```
 
 ## 테스트 방법
