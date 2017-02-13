@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # last update (when .wem files were extracted)
-EXTRACTED_DATE = '20170201'
+EXTRACTED_DATE = '20170212'
 
 SOUNDS_DIR = 'sounds'
 

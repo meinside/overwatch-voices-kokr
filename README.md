@@ -35,19 +35,13 @@ $ ffmpeg -i xxxxx.wav -b:a 192k xxxxx.m4a
 
 ```ruby
 # ogg => wav
-Dir['**/*.ogg'].each{|ogg|
-	`ffmpeg -i "#{ogg}" -ar 44.1k "#{ogg.gsub(".ogg", ".wav")}"`
-}
+Dir['**/*.ogg'].each{|ogg| `ffmpeg -i "#{ogg}" -ar 44.1k "#{ogg.gsub(".ogg", ".wav")}"`}
 
 # wav => m4a
-Dir['**/*.wav'].each{|wav|
-	`ffmpeg -i "#{wav}" -b:a 192k "#{wav.gsub(".wav", ".m4a")}"`
-}
+Dir['**/*.wav'].each{|wav| `ffmpeg -i "#{wav}" -b:a 192k "#{wav.gsub(".wav", ".m4a")}"`}
 
 # delete ogg & wav files
-(Dir['**/*.ogg'] + Dir['**/*.wav']).each{|f|
-	`rm "#{f}"`
-}
+(Dir['**/*.ogg'] + Dir['**/*.wav']).each{|f| `rm "#{f}"`}
 ```
 
 ## 테스트 방법
