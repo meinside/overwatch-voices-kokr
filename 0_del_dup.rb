@@ -6,9 +6,9 @@ if __FILE__ == $0
 
   # XXX - so many duplicated files in these directories!
   check_targets = [
-    '좀닉 포병',
-    '충격 타이어',
-    '훈련용 봇',
+    '좀닉', # '좀닉 포병' => 삭제
+    '충격 타이어',  # '충격 타이어' => 삭제
+    '훈련용 봇',  # '아군 봇', '훈련 어쩌구' => 삭제
   ]
 
   dirs = Dir[File.join(SOUNDS_DIR, '*')]
